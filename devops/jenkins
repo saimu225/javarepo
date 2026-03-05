@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Checkout') {
+            steps {
+                git "https://github.com/saimu225/javarepo"
+            }
+        }
+     stage('Build') {
+            steps {
+                bat "javac devops/hello.java"
+            }}
+     stage('Execute') {
+            steps {
+                bat "java devops/hello.java"
+            }
+     }
+    }
+}
